@@ -3,7 +3,7 @@ use yew_router::{prelude::*, route::Route, switch::Permissive, Switch};
 
 mod components;
 
-use app::components::root::Root;
+use app::components::{root::Root, header::Header};
 
 pub struct App;
 
@@ -38,7 +38,7 @@ impl Component for App {
                     render = Router::render(|switch: AppRouter | {
                         match switch {
                             AppRouter::RootPath => html!{<Root />},
-                            AppRouter::HelloPath => html!{<h2>{"Hello world"}</h2>},
+                            AppRouter::HelloPath => html!{<Header />},
                             AppRouter::AwasomePath => html!{<h2>{"My awesome Yew with Yew-Router and Parcel application!"}</h2>},
                             AppRouter::PageNotFound(Permissive(None)) => html!{"Page not found"},
                             AppRouter::PageNotFound(Permissive(Some(missed_route))) => html!{format!("Page '{}' not found", missed_route)}
